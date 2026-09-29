@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Brand Visual System — see lib/brand-system.ts
+
+  Composition: BrandSection + BrandSplit + BrandCopy + BrandStage
+  Stage media (one per stage): product | diagram | motion | code
+  Stage tones: paper | muted | ink
+  Motion media roles only: craft | write | connect
+  Diagram language: NetworkGraph + WorkflowPath (same stroke family)
+*/
+
+@layer base {
+  :root {
+    /*
+      Brand palette — cool paper + ink + steel accent.
+      One accent family only (hsl 211 navy/steel). No purple drift.
+      CTAs use --primary; labels/highlights use --highlight.
+    */
+    --background: 214 32% 98%;
+    --foreground: 215 42% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 42% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 42% 12%;
+
+    /* Steel navy CTAs */
+    --primary: 211 48% 32%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 211 48% 26%;
+
+    --secondary: 214 28% 94%;
+    --secondary-foreground: 215 42% 14%;
+
+    --muted: 214 26% 95%;
+    --muted-foreground: 215 16% 40%;
+
+    --accent: 211 28% 95%;
+    --accent-foreground: 211 48% 28%;
+
+    /* Brand highlight / label accent (same family as primary) */
+    --highlight: 211 48% 42%;
+    --highlight-foreground: 0 0% 100%;
+    --highlight-soft: 211 55% 68%;
+    --highlight-on-ink: 211 70% 72%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 22% 88%;
+    --input: 214 22% 88%;
+    --ring: 211 48% 42%;
+
+    --radius: 0.125rem;
+    --heading: 215 42% 12%;
+    --body: 215 16% 40%;
+    --surface: 214 32% 98%;
+    --surface-elevated: 0 0% 100%;
+
+    --scrollbar-thumb: 215 22% 55%;
+    --scrollbar-thumb-hover: 215 40% 32%;
+    --scrollbar-track: 214 26% 93%;
+
+    --fluid-root: clamp(0.9375rem, 0.85rem + 0.4vw, 1.0625rem);
+    --fluid-text-xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);
+    --fluid-text-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
+    --fluid-text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --fluid-text-md: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+    --fluid-text-lg: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
+    --fluid-text-xl: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+    --fluid-text-2xl: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
+    --fluid-text-3xl: clamp(2.75rem, 1.8rem + 4vw, 5rem);
+    --fluid-text-display: clamp(3.25rem, 1.5rem + 7vw, 7.5rem);
+    --fluid-text-hero: clamp(3.75rem, 1.2rem + 10vw, 9.5rem);
+    --fluid-text-mega: clamp(4rem, 1rem + 12vw, 11rem);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: var(--fluid-root);
+    overflow-x: clip;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background font-body text-body antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+    min-height: 100vh;
+    background-color: hsl(var(--background));
+  }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--scrollbar-thumb)) hsl(var(--scrollbar-track));
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(var(--scrollbar-track));
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--scrollbar-thumb));
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--scrollbar-thumb-hover));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-heading tracking-tight;
+  }
+
+  h1 {
+    font-size: var(--fluid-text-hero);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    @apply text-balance;
+  }
+
+  h2 {
+    font-size: var(--fluid-text-2xl);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: var(--fluid-text-xl);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: var(--fluid-text-lg);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  p,
+  li {
+    line-height: 1.75;
+  }
+
+  ::selection {
+    background: hsl(211 48% 42% / 0.18);
+  }
+}
+
+@layer utilities {
+  .surface-page {
+    @apply bg-background;
+  }
+
+  .surface-muted {
+    @apply bg-muted;
+  }
+
+  .surface-panel {
+    @apply bg-white;
+  }
+
+  .container-wide {
+    @apply mx-auto min-w-0 w-full max-w-[1180px]
+      pl-[max(1.25rem,env(safe-area-inset-left,0px))]
+      pr-[max(1.25rem,env(safe-area-inset-right,0px))]
+      lg:pl-[max(2rem,env(safe-area-inset-left,0px))]
+      lg:pr-[max(2rem,env(safe-area-inset-right,0px))];
+  }
+
+  .container-narrow {
+    @apply mx-auto min-w-0 w-full max-w-[720px]
+      pl-[max(1.25rem,env(safe-area-inset-left,0px))]
+      pr-[max(1.25rem,env(safe-area-inset-right,0px))];
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .section-label {
+    @apply font-mono text-xs font-medium tracking-wide text-highlight;
+  }
+
+  /* Shared primary CTAs — one shape across light + ink surfaces */
+  .cta-primary {
+    @apply inline-flex min-h-11 items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover;
+  }
+
+  .cta-primary-ink {
+    @apply inline-flex min-h-11 items-center gap-2 bg-white px-5 py-2.5 text-sm font-semibold text-[hsl(215_42%_12%)] transition-colors hover:bg-white/90;
+  }
+
+  .brand-meta {
+    @apply font-mono text-xs tracking-wide text-muted-foreground;
+  }
+
+  .section-lead {
+    @apply max-w-xl text-body;
+    font-size: var(--fluid-text-base);
+    line-height: 1.7;
+  }
+
+  .section-heading {
+    @apply font-display text-heading text-balance;
+    font-size: var(--fluid-text-3xl);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+  }
+
+  .text-fluid-hero {
+    font-size: var(--fluid-text-hero);
+    line-height: 0.95;
+  }
+
+  .text-fluid-display {
+    font-size: var(--fluid-text-display);
+    line-height: 1;
+  }
+
+  .text-fluid-mega {
+    font-size: var(--fluid-text-mega);
+    line-height: 0.92;
+  }
+
+  .text-fluid-xl {
+    font-size: var(--fluid-text-xl);
+    line-height: 1.15;
+  }
+
+  .text-fluid-lg {
+    font-size: var(--fluid-text-lg);
+    line-height: 1.25;
+  }
+
+  .text-fluid-base {
+    font-size: var(--fluid-text-base);
+    line-height: 1.75;
+  }
+
+  .text-fluid-sm {
+    font-size: var(--fluid-text-sm);
+    line-height: 1.7;
+  }
+
+  .text-fluid-xs {
+    font-size: var(--fluid-text-xs);
+    line-height: 1.65;
+  }
+
+  .hairline {
+    @apply border-border/80;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-out;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  .tabular-nums-pro {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mask-reveal {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes skeleton-shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .skeleton-shimmer {
+    @apply relative overflow-hidden bg-muted;
+  }
+
+  .skeleton-shimmer::after {
+    content: '';
+    @apply absolute inset-0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(0 0% 100% / 0.55),
+      transparent
+    );
+    animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  }
+
+  @keyframes route-load-bar {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(380%);
+    }
+  }
+
+  .animate-route-load-bar {
+    animation: route-load-bar 1.15s ease-in-out infinite;
+  }
+
+  @keyframes brand-marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .brand-marquee {
+    animation: brand-marquee 42s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-reveal,
+    .animate-route-load-bar,
+    .skeleton-shimmer::after,
+    .brand-marquee {
+      animation: none !important;
+    }
+  }
+}
