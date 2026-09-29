@@ -3,17 +3,5 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "headers": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "mubaidjavaid-ten.vercel.app" }],
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    }
-  ]
+  "devCommand": "npm run dev"
 }

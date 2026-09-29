@@ -2,10 +2,9 @@
  * Single public origin for canonicals, sitemap, OG, and host redirects.
  *
  * Prefer NEXT_PUBLIC_SITE_URL (custom domain or primary).
- * Never publish preview hosts (e.g. mubaidjavaid-ten.vercel.app) as canonical —
- * even if that value is mistakenly set in Vercel env.
+ * Never publish preview / git-branch hosts as canonical.
  */
-const FALLBACK = 'https://mubaidjavaid.vercel.app'
+const FALLBACK = 'https://ubaid-dev-01.vercel.app'
 
 function normalizeOrigin (raw: string): string {
   const withProtocol = raw.startsWith('http') ? raw : `https://${raw}`
@@ -15,8 +14,7 @@ function normalizeOrigin (raw: string): string {
 function isUnsafeSeoHost (origin: string): boolean {
   try {
     const host = new URL(origin).host.toLowerCase()
-    if (host === 'mubaidjavaid.vercel.app') return false
-    if (host.includes('mubaidjavaid-ten')) return true
+    if (host === 'ubaid-dev-01.vercel.app') return false
     if (host.includes('-git-') && host.endsWith('.vercel.app')) return true
     return false
   } catch {
@@ -44,4 +42,4 @@ export function getCanonicalHost (): string {
 }
 
 /** Preview / alternate Vercel hosts that must not be indexed. */
-export const PREVIEW_HOSTS = ['mubaidjavaid-ten.vercel.app'] as const
+export const PREVIEW_HOSTS = [] as const
