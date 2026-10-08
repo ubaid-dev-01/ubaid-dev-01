@@ -218,6 +218,36 @@ MERN end to end: React interfaces, Express REST APIs, MongoDB schema design, aut
   <img src="./assets/divider.svg" alt="" width="100%">
 </picture>
 
+
+## GitHub repositories
+
+Canonical public source on [`ubaid-dev-01`](https://github.com/ubaid-dev-01):
+
+| Repo | Description |
+| --- | --- |
+| [ubaid-dev-01](https://github.com/ubaid-dev-01/ubaid-dev-01) | Portfolio / profile site (this repo) |
+| [idea-hub](https://github.com/ubaid-dev-01/idea-hub) | Ideas Hub — Next.js + Express |
+| [naazwears](https://github.com/ubaid-dev-01/naazwears) | Naaz Wears — Next.js + Convex commerce |
+| [pos-saas](https://github.com/ubaid-dev-01/pos-saas) | QuickPOS multi-tenant POS |
+| [apex-platinum](https://github.com/ubaid-dev-01/apex-platinum) | Fintech portal — Next.js + Three.js |
+| [hsms-backend](https://github.com/ubaid-dev-01/hsms-backend) | Housing Society API |
+| [hsms-frontend](https://github.com/ubaid-dev-01/hsms-frontend) | Housing Society ops console |
+| [hsms-resident-app](https://github.com/ubaid-dev-01/hsms-resident-app) | Resident mobile app |
+| [hsms](https://github.com/ubaid-dev-01/hsms) | HSMS meta workspace |
+| [surgicore](https://github.com/ubaid-dev-01/surgicore) | Surgical ops platform |
+| [vitalis-health](https://github.com/ubaid-dev-01/vitalis-health) | Clinic + admin surface |
+| [rehabflow](https://github.com/ubaid-dev-01/rehabflow) | Rehab clinic operations |
+| [elderguard-health](https://github.com/ubaid-dev-01/elderguard-health) | Elder care platform |
+| [chronos](https://github.com/ubaid-dev-01/chronos) | Multi-app Turborepo platform |
+| [voyager](https://github.com/ubaid-dev-01/voyager) | Travel product site |
+| [evolvo](https://github.com/ubaid-dev-01/evolvo) | Evolvo Next.js site |
+| [evolvo-web](https://github.com/ubaid-dev-01/evolvo-web) | Evolvo Vite marketing site |
+| [admin-dashboard-react](https://github.com/ubaid-dev-01/admin-dashboard-react) | Ops admin dashboard |
+| [mubaidjavaid](https://github.com/ubaid-dev-01/mubaidjavaid) | Portfolio mirror |
+| [pixel-forge](https://github.com/ubaid-dev-01/pixel-forge) | Image/video restoration platform |
+
+Each project ships `README.md` plus `docs/ARCHITECTURE.md`, `docs/SETUP.md`, and `docs/CONTRIBUTING.md`.
+
 ## Contact
 
 <img src="./assets/contact-strip.svg" alt="Let's build the next production system" width="100%">
@@ -235,3 +265,4 @@ MERN end to end: React interfaces, Express REST APIs, MongoDB schema design, aut
 Open to freelance, contract and full-time. Send the shape of the problem — I'll tell you honestly if I'm the right person.
 
 **[mubaidjavaid97@gmail.com](mailto:mubaidjavaid97@gmail.com)** · [LinkedIn](https://www.linkedin.com/in/m-ubaid-javaid-260735407) · [Portfolio](https://mubaidjavaid.vercel.app)
+
