@@ -67,6 +67,4 @@ temp_interactive_push.bat
 index.html
 
 .vercel
-.env
-.env.local
 .env.*.local
